@@ -1,0 +1,24 @@
+{
+  "name": "moment-precise-range",
+  "main": "index.js",
+  "version": "1.0.1",
+  "authors": [
+    "jeff-lewis <jlewis@streetconnect.com>"
+  ],
+  "description": "moment js with precision time",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "moment"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Jeff-Lewis/moment-precise-range",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

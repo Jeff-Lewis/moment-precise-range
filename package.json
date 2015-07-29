@@ -1,6 +1,6 @@
 {
   "name": "moment-precise-range",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "moment js with precision time",
   "main": "index.js",
   "scripts": {
@@ -9,23 +9,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mtscout6/moment-precise-range.git"
+    "url": "https://github.com/Jeff-Lewis/moment-precise-range.git"
   },
   "keywords": [
     "moment"
   ],
   "author": "Rob Dawson",
-  "maintainer": "Matthew Smith <mtscout6@gmail.com>",
+  "maintainer": "Jeff Lewis <jeff-lewis+github@streetconnect.com>",
+  "contributors":[
+    "Matthew Smith <mtscout6@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mtscout6/moment-precise-range/issues"
+    "url": "https://github.com/Jeff-Lewis/moment-precise-range/issues"
   },
-  "homepage": "https://github.com/mtscout6/moment-precise-range",
+  "homepage": "https://github.com/Jeff-Lewis/moment-precise-range",
   "dependencies": {
     "moment": "^2.8.1"
   },
   "devDependencies": {
     "coveralls": "^2.10.1",
+    "grunt": "~0.4.5",
+    "grunt-browserify": "~3.8.0",
+    "grunt-contrib-concat": "~0.5.1",
     "istanbul": "^0.3.0",
     "mocha": "^1.21.4",
     "mocha-lcov-reporter": "0.0.1"

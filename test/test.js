@@ -1,4 +1,6 @@
 // lang = 'en'
+'use strict';
+
 var moment = require('../');
 var assert = require('assert');
 
@@ -6,8 +8,8 @@ describe('preciseDiff', function() {
   function test(d1, d2, result, opts) {
     assert.equal(
       moment.preciseDiff(moment(d1, 'YYYY-MM-DD HH:mm:ss'),
-                         moment(d2, 'YYYY-MM-DD HH:mm:ss'), opts),
-    result);
+        moment(d2, 'YYYY-MM-DD HH:mm:ss'), opts),
+      result);
   }
 
   describe('order', function() {
@@ -74,15 +76,19 @@ describe('preciseDiff', function() {
     it('seconds', function() {
       test('2013-01-01 00:02:10', '2013-01-01 00:03:05', 'a few seconds');
     });
+
     it('minutes', function() {
       test('2013-01-01 02:10:00', '2013-01-01 03:05:00', '55 minutes');
     });
+
     it('hours', function() {
       test('2013-01-01 23:00:00', '2013-01-02 01:00:00', '2 hours');
     });
+
     it('days', function() {
       test('2013-01-20 00:00:00', '2013-02-10 00:00:00', '21 days');
     });
+
     it('months', function() {
       test('2013-11-01 00:00:00', '2014-02-01 00:00:00', '3 months');
     });
@@ -100,11 +106,14 @@ describe('preciseDiff', function() {
       test('2013-05-30 00:00:00', '2013-07-01 00:00:00', 'a month a day');
       test('2013-05-29 00:00:00', '2013-07-01 00:00:00', 'a month 2 days');
     });
+
     it('start month has fewer days than last full month', function() {
       test('2013-04-29 00:00:00', '2013-08-01 00:00:00', '3 months 3 days');
       test('2013-04-30 00:00:00', '2013-08-01 00:00:00', '3 months 2 days');
+
       // no way to get '3 months a day' to 2013-08-01
     });
+
     it('start month has same days as last full month', function() {
       test('2013-05-30 00:00:00', '2013-08-01 00:00:00', '2 months 2 days');
       test('2013-05-31 00:00:00', '2013-08-01 00:00:00', '2 months a day');
@@ -115,6 +124,7 @@ describe('preciseDiff', function() {
     it('all values', function() {
       test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days 12 hours a minute a few seconds');
     });
+
     it('multiple values', function() {
       test('2013-10-21 10:15:40', '2014-02-02 01:01:01', '3 months 11 days 14 hours 45 minutes a few seconds');
       test('2013-12-31 23:58:10', '2014-01-01 00:02:08', '3 minutes a few seconds');
@@ -126,28 +136,50 @@ describe('preciseDiff', function() {
   });
 
   describe('precision up till options', function() {
-    it ('only shows years', function() {
+    it('only shows years', function() {
       test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years', {year: true});
     });
 
-    it ('only shows years and months', function() {
+    it('only shows years and months', function() {
       test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months', {year: true, month: true});
     });
 
     it('only shows years, months, and days', function() {
-      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days', {year: true, month: true, day: true});
+      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days', {
+        year: true,
+        month: true,
+        day: true
+      });
     });
 
     it('only shows years, months, days, and hours', function() {
-      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days 12 hours', {year: true, month: true, day: true, hour: true});
+      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days 12 hours', {
+        year: true,
+        month: true,
+        day: true,
+        hour: true
+      });
     });
 
     it('only shows years, months, days, hours, and minutes', function() {
-      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days 12 hours a minute', {year: true, month: true, day: true, hour: true, minute: true});
+      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days 12 hours a minute', {
+        year: true,
+        month: true,
+        day: true,
+        hour: true,
+        minute: true
+      });
     });
 
     it('only shows years, months, days, hours, minutes, and seconds', function() {
-      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days 12 hours a minute a few seconds', {year: true, month: true, day: true, hour: true, minute: true, second: true});
+      test('2001-11-12 13:01:43', '2014-02-01 01:03:01', '12 years 2 months 19 days 12 hours a minute a few seconds', {
+        year: true,
+        month: true,
+        day: true,
+        hour: true,
+        minute: true,
+        second: true
+      });
     });
   });
 });

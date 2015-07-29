@@ -1,6 +1,6 @@
 {
   "name": "moment-precise-range",
-  "main": "index.js",
+  "main": "dist/moment-precise-range.js",
   "version": "1.0.1",
   "authors": [
     "jeff-lewis <jlewis@streetconnect.com>"
